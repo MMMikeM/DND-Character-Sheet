@@ -1,56 +1,30 @@
-# MorePurpleMoreBetter's D&D 5e Character Record Sheet
+# React + TypeScript + Vite
 
-This Git contains all document-level JavaScript that is used in the AcroForm PDFs called **MPMB's Character Record Sheet**. Note that you can't create the PDF from just this repository, this is just the JavaScript used at the document-level.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-### [MPMB's Character Record Sheets can be found here](https://www.flapkan.com/download/#charactersheets)
+Currently, two official plugins are available:
 
-### [MPMB's Spell Sheets per Class can be found here](https://www.flapkan.com/download/#spellsheets)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-### [MPMB's Adventure Logsheets can be found here](https://www.flapkan.com/download/#logsheets)
+## Expanding the ESLint configuration
 
-### [Please consider supporting this project on Patreon](https://patreon.com/morepurplemorebetter)
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-## Functions
-The **[\_functions](https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/tree/master/_functions)** folder contain the document-level functions that the AcroForm utilizes.
-These are called from form fields, buttons or bookmarks.
+- Configure the top-level `parserOptions` property like this:
 
-## Variables
-The **[\_variables](https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/tree/master/_variables)** folder contains all document-level variables that the AcroForm utilizes.
-Here the sheet stores the information that it uses to populate the fields.
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+}
+```
 
-## Additional Content
-The **[additional content](https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/tree/master/additional%20content)** folder contains scripts that can be imported into the sheet using the "Add Extra Materials" bookmark or "Import" button.
-Each file is a complete script. You can add multiple files, but take note that they will be processed in the order they are added.
-Please see the [How-To Guide - Add More Content](https://www.flapkan.com/how-to/add-more-content) on my website for an explanation how to add these scripts to the PDF.
-
-## Syntax
-The **[additional content syntax](https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/tree/master/additional%20content%20syntax)** folder contains explanatory files for making the additional content scripts.
-
-## Community
-There is a community of people who actively make additions to MPMB's D&D 5e Character Tools over at the **[/r/mpmb subreddit](https://www.reddit.com/r/mpmb/)**.    
-You can also **[join the MPMB Discord sever](https://discord.gg/Qjq9Z5Q)** for discussion and questions.
-
-&nbsp;
-
-# Legal Information
-MPMB's Character Tools automate the administrative tasks around playing
- the game of Dungeon & Dragons 5th edition (C)  Wizards of the Coast, Inc.
-Copyright (C) 2014  Joost Wijnen; Flapkan Productions
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You can find a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-&nbsp;
-
-Certain parts of the content are copyright of Wizards of the Coast
-and are including using the Open Game License version 1.0a.
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
